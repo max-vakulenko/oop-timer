@@ -20,13 +20,22 @@
 	<header>
 		<h1 class="font-semibold text-center text-5xl text-yellow-300 drop-shadow-2xl mb-2">Start your Timer:</h1>
 
-		<button class="block ml-auto flex items-center gap-2 text-xl">
+		<button class="block ml-auto flex items-center gap-2 text-xl" id="open_settings">
 			timer settings <span
 				class="material-symbols-outlined text-yellow-300 shadow-lg shadow-yellow-950/50 duration-300 hover:scale-125 hover:opacity-50 hover:cursor-pointer">settings</span>
 		</button>
 		<img src="./images/timer.png" alt="timer" class="w-[200px] m-auto hover:animate-spin hover:scale-125" />
 	</header>
 	<main class="flex flex-col justify-center gap-20">
+		<div class="flex text-4xl font-bold justify-center">
+			<div class="me-1">
+				Rounds
+			</div>
+			:
+			<div class="ms-2" id="rounds">
+				0
+			</div>
+		</div>
 		<div class="flex text-8xl font-bold justify-center">
 			<div id="minutes">
 				00
@@ -51,7 +60,11 @@
 			</button>
 		</div>
 	</main>
-	<form class="fixed z-10 top-0 left-[100vw] min-h-screen px-4 py-10 w-[300px] bg-sky-950">
+	<form class="fixed z-10 top-0 right-0 min-h-screen px-4 py-10 w-[300px] bg-sky-950 translate-x-full duration-300"
+		id="settings">
+		<button type="button" class="absolute top-4 right-4 material-symbols-outlined" id="close_settings">
+			close
+		</button>
 		<h6 class="text-4xl mb-5">
 			Set up timer:
 		</h6>
@@ -63,6 +76,10 @@
 			Seconds:
 			<input class="w-full bg-transparent border-b-2" type="number" name="inputSeconds" step="1" min="0" max="59">
 		</label>
+		<label class="block mb-5">
+			Rounds:
+			<input class="w-full bg-transparent border-b-2" type="number" name="inputRounds" step="1" min="1" value="1">
+		</label>
 		<button
 			class=" mt-20 w-full px-4 py-2 font-bold flex justify-center items-center gap-2 border-0 bg-lime-400 rounded-full text-zinc-800 duration-300 hover:opacity-60 ">
 			Set timer
@@ -71,6 +88,7 @@
 	<footer class="text-center border-t-2 pt-5">
 		2023. &copy; All rights reserved
 	</footer>
+	<audio src="audio/alarm.wav" id="alarm"></audio>
 	<script type="module" src="./js/main.js"></script>
 </body>
 
